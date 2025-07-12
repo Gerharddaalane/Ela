@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nosso Amor</title>
+<style>
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    overflow: hidden;
+  }
+  body {
+    background: url('https://i.ibb.co/tPn2fbPJ/IMG-20250615-WA0003.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  #contador {
+    font-size: 3em;
+    font-weight: 700;
+    background: rgba(0,0,0,0.5);
+    padding: 20px 40px;
+    border-radius: 15px;
+    color: linear-gradient(45deg, #FFFF00, #800080);
+    /* fallback */
+    color: yellow;
+    margin-bottom: 20px;
+  }
+  button {
+    font-size: 1.5em;
+    padding: 10px 25px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(45deg, #FFFF00, #800080);
+    color: #fff;
+    font-weight: bold;
+  }
+  iframe {
+    display: none; /* esconder o vídeo */
+  }
+</style>
+</head>
+<body>
+  <div id="contador">Calculando dias...</div>
+
+  <button id="btnPlay">▶️ Tocar Música</button>
+
+  <!-- iframe do YouTube, com autoplay desativado para não travar no celular -->
+  <iframe id="player" src="https://www.youtube.com/embed/8hkmQOAOvZs?enablejsapi=1&origin=https://example.com" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+
+  <script>
+    const dataInicio = new Date(2024, 8, 6);
+
+    function atualizarContador() {
+      const hoje = new Date();
+      const diff = hoje - dataInicio;
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const contador = document.getElementById('contador');
+      contador.textContent = `Estamos juntos há ${dias} dias 💛💜`;
+      contador.style.background = 'linear-gradient(45deg, #FFFF00, #800080)';
+      contador.style.webkitBackgroundClip = 'text';
+      contador.style.webkitTextFillColor = 'transparent';
+    }
+
+    atualizarContador();
+    setInterval(atualizarContador, 1000 * 60 * 60 * 24);
+
+    const btnPlay = document.getElementById('btnPlay');
+    const playerIframe = document.getElementById('player');
+
+    // Carregar a API do YouTube
+    let tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
+
+    let player;
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        events: {
+          'onReady': onPlayerReady
+        }
+      });
+    }
+
+    function onPlayerReady(event) {
+      btnPlay.addEventListener('click', () => {
+        if (player.getPlayerState() !== YT.PlayerState.PLAYING) {
+          player.playVideo();
+          btnPlay.textContent = '⏸️ Pausar Música';
+        } else {
+          player.pauseVideo();
+          btnPlay.textContent = '▶️ Tocar Música';
+        }
+      });
+    }
+  </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nosso Amor</title>
+<style>
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    overflow: hidden;
+  }
+  body {
+    background: url('https://i.ibb.co/tPn2fbPJ/IMG-20250615-WA0003.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  #contador {
+    font-size: 3em;
+    font-weight: 700;
+    background: rgba(0,0,0,0.5);
+    padding: 20px 40px;
+    border-radius: 15px;
+    color: linear-gradient(45deg, #FFFF00, #800080);
+    /* fallback */
+    color: yellow;
+    margin-bottom: 20px;
+  }
+  button {
+    font-size: 1.5em;
+    padding: 10px 25px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(45deg, #FFFF00, #800080);
+    color: #fff;
+    font-weight: bold;
+  }
+  iframe {
+    display: none; /* esconder o vídeo */
+  }
+</style>
+</head>
+<body>
+  <div id="contador">Calculando dias...</div>
+
+  <button id="btnPlay">▶️ Tocar Música</button>
+
+  <!-- iframe do YouTube, com autoplay desativado para não travar no celular -->
+  <iframe id="player" src="https://www.youtube.com/embed/8hkmQOAOvZs?enablejsapi=1&origin=https://example.com" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+
+  <script>
+    const dataInicio = new Date(2024, 8, 6);
+
+    function atualizarContador() {
+      const hoje = new Date();
+      const diff = hoje - dataInicio;
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const contador = document.getElementById('contador');
+      contador.textContent = `Estamos juntos há ${dias} dias 💛💜`;
+      contador.style.background = 'linear-gradient(45deg, #FFFF00, #800080)';
+      contador.style.webkitBackgroundClip = 'text';
+      contador.style.webkitTextFillColor = 'transparent';
+    }
+
+    atualizarContador();
+    setInterval(atualizarContador, 1000 * 60 * 60 * 24);
+
+    const btnPlay = document.getElementById('btnPlay');
+    const playerIframe = document.getElementById('player');
+
+    // Carregar a API do YouTube
+    let tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
+
+    let player;
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        events: {
+          'onReady': onPlayerReady
+        }
+      });
+    }
+
+    function onPlayerReady(event) {
+      btnPlay.addEventListener('click', () => {
+        if (player.getPlayerState() !== YT.PlayerState.PLAYING) {
+          player.playVideo();
+          btnPlay.textContent = '⏸️ Pausar Música';
+        } else {
+          player.pauseVideo();
+          btnPlay.textContent = '▶️ Tocar Música';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
